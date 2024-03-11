@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PremiumViewController" customModule="Greencard" customModuleProvider="target">
+            <connections>
+                <outlet property="premiumView" destination="g6Z-uW-k5y" id="RjJ-I4-mTk"/>
+                <outlet property="privacyButton" destination="PU2-OB-jKe" id="h4d-fu-iF4"/>
+                <outlet property="purchaseButton" destination="aCg-iN-24p" id="zao-xy-ZbT"/>
+                <outlet property="scrollView" destination="Glp-YS-SOa" id="CSu-mS-EMb"/>
+                <outlet property="termsButton" destination="xF0-C6-nst" id="uke-zD-Vr0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glp-YS-SOa">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Otm-tB-olj">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6Z-uW-k5y" customClass="PremiumView" customModule="Greencard" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="200" placeholder="YES" id="dZ0-h4-FkW"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Otm-tB-olj" secondAttribute="trailing" id="I56-k2-Cmr"/>
+                        <constraint firstItem="Otm-tB-olj" firstAttribute="leading" secondItem="Glp-YS-SOa" secondAttribute="leading" id="Vb1-tr-3bd"/>
+                        <constraint firstItem="Otm-tB-olj" firstAttribute="top" secondItem="Glp-YS-SOa" secondAttribute="top" id="r1i-HF-VPY"/>
+                        <constraint firstAttribute="bottom" secondItem="Otm-tB-olj" secondAttribute="bottom" id="waN-sR-wgu"/>
+                    </constraints>
+                </scrollView>
+                <visualEffectView opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S71-Dg-pyV">
+                    <rect key="frame" x="0.0" y="682" width="393" height="170"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000001192092896" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cCA-zA-9rf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="170"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="JqR-4X-dpi"/>
+                    </constraints>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zQx-yg-YSx">
+                    <rect key="frame" x="24" y="698" width="345" height="102"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-iN-24p">
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="BZG-vm-o5e"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="9"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="didTapPurchase:" destination="-1" eventType="touchUpInside" id="x6x-gV-akk"/>
+                            </connections>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="byx-p9-R4r">
+                            <rect key="frame" x="0.0" y="72" width="345" height="30"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xF0-C6-nst">
+                                    <rect key="frame" x="0.0" y="0.0" width="167" height="30"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Terms and conditions"/>
+                                    <connections>
+                                        <action selector="didTapTerms:" destination="-1" eventType="touchUpInside" id="r9A-do-sxA"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&amp;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0o-r0-Cbk">
+                                    <rect key="frame" x="168" y="0.0" width="9" height="30"/>
+                                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                    <color key="textColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PU2-OB-jKe">
+                                    <rect key="frame" x="178" y="0.0" width="167" height="30"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Privacy policy"/>
+                                    <connections>
+                                        <action selector="didTapPrivacy:" destination="-1" eventType="touchUpInside" id="ylA-Sf-f5I"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="PU2-OB-jKe" firstAttribute="width" secondItem="xF0-C6-nst" secondAttribute="width" id="2GJ-hq-PKa"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Glp-YS-SOa" secondAttribute="bottom" id="E7F-sJ-5Ke"/>
+                <constraint firstItem="Otm-tB-olj" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="HRc-Bq-5Hm"/>
+                <constraint firstItem="S71-Dg-pyV" firstAttribute="top" secondItem="zQx-yg-YSx" secondAttribute="top" constant="-16" id="LFd-Ms-xt5"/>
+                <constraint firstItem="S71-Dg-pyV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="NpO-qa-ihn"/>
+                <constraint firstItem="Glp-YS-SOa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="P7u-wo-0Xg"/>
+                <constraint firstItem="Glp-YS-SOa" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Rva-HE-0Mt"/>
+                <constraint firstItem="Glp-YS-SOa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TDx-7y-3DM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zQx-yg-YSx" secondAttribute="trailing" constant="24" id="Tfl-GO-WgI"/>
+                <constraint firstItem="S71-Dg-pyV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ufh-Nj-WPl"/>
+                <constraint firstAttribute="bottom" secondItem="S71-Dg-pyV" secondAttribute="bottom" id="cuP-8p-exN"/>
+                <constraint firstItem="zQx-yg-YSx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="r9K-cY-lgn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-37.404580152671755" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

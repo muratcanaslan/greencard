@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Greencard" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="ePb-HC-Ewz" id="O3q-Ue-ri5"/>
+                <outlet property="headerView" destination="BBA-tH-4na" id="bsu-vr-17Y"/>
+                <outlet property="subtitleLabel" destination="wcP-kk-iSr" id="1SI-TG-m2t"/>
+                <outlet property="takeButton" destination="rVC-zf-gjX" id="XSW-pK-peC"/>
+                <outlet property="titleLabel" destination="SHE-Kh-hlK" id="czK-dv-RVo"/>
+                <outlet property="uploadButton" destination="sMn-iE-Gk1" id="MPv-vH-QAY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="D91-J5-5aY">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBA-tH-4na">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="244"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconHeader" translatesAutoresizingMaskIntoConstraints="NO" id="PPp-0G-1tv">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="244"/>
+                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ZEV-dL-Le9">
+                                    <rect key="frame" x="32" y="48" width="329" height="148"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What To Expect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHE-Kh-hlK">
+                                            <rect key="frame" x="104.66666666666666" y="0.0" width="120" height="57"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perfect green card photos instantly: Capture or upload, our app handles background, size, and color effortlessly" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcP-kk-iSr">
+                                            <rect key="frame" x="15.333333333333343" y="69" width="298.66666666666663" height="79"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="PPp-0G-1tv" secondAttribute="trailing" id="7Ap-9b-ls8"/>
+                                <constraint firstAttribute="bottom" secondItem="ZEV-dL-Le9" secondAttribute="bottom" constant="48" id="NST-xa-LhT"/>
+                                <constraint firstAttribute="height" constant="244" id="QF0-eI-gfJ"/>
+                                <constraint firstItem="ZEV-dL-Le9" firstAttribute="top" secondItem="BBA-tH-4na" secondAttribute="top" constant="48" id="UP8-xJ-xM7"/>
+                                <constraint firstItem="ZEV-dL-Le9" firstAttribute="leading" secondItem="BBA-tH-4na" secondAttribute="leading" constant="32" id="WJe-7K-mv7"/>
+                                <constraint firstAttribute="trailing" secondItem="ZEV-dL-Le9" secondAttribute="trailing" constant="32" id="bnQ-bC-5kJ"/>
+                                <constraint firstAttribute="bottom" secondItem="PPp-0G-1tv" secondAttribute="bottom" id="kDu-r9-rOh"/>
+                                <constraint firstItem="PPp-0G-1tv" firstAttribute="leading" secondItem="BBA-tH-4na" secondAttribute="leading" id="qR1-3j-4UM"/>
+                                <constraint firstItem="PPp-0G-1tv" firstAttribute="top" secondItem="BBA-tH-4na" secondAttribute="top" id="rcM-xF-2aG"/>
+                            </constraints>
+                        </view>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ePb-HC-Ewz">
+                            <rect key="frame" x="0.0" y="244" width="393" height="549"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AHQ-er-5tb">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                </stackView>
+                <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FcC-20-0al">
+                    <rect key="frame" x="0.0" y="647" width="393" height="205"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3ew-jQ-gsD">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="205"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="205" id="6mV-fT-v7E"/>
+                    </constraints>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Mxc-mm-waG">
+                    <rect key="frame" x="24" y="664" width="345" height="128"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMn-iE-Gk1">
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="dzv-Vp-rwK"/>
+                            </constraints>
+                            <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Upload photo" image="iconUpload"/>
+                            <connections>
+                                <action selector="didTapUpload:" destination="-1" eventType="touchUpInside" id="0qG-AM-ipy"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVC-zf-gjX">
+                            <rect key="frame" x="0.0" y="72" width="345" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="CMf-Bm-FxL"/>
+                            </constraints>
+                            <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Take a photo" image="iconTake"/>
+                            <connections>
+                                <action selector="didTapTake:" destination="-1" eventType="touchUpInside" id="tac-9K-jig"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="D91-J5-5aY" secondAttribute="bottom" id="1B0-ky-2Rh"/>
+                <constraint firstAttribute="bottom" secondItem="FcC-20-0al" secondAttribute="bottom" id="H0h-dC-uhB"/>
+                <constraint firstAttribute="trailing" secondItem="D91-J5-5aY" secondAttribute="trailing" id="Nb4-GX-e7k"/>
+                <constraint firstItem="FcC-20-0al" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="WrH-4D-sZE"/>
+                <constraint firstAttribute="bottom" secondItem="Mxc-mm-waG" secondAttribute="bottom" constant="60" id="bnD-Sc-UQ3"/>
+                <constraint firstItem="D91-J5-5aY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="lZp-kC-v0S"/>
+                <constraint firstItem="Mxc-mm-waG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="mXh-fR-Ard"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mxc-mm-waG" secondAttribute="trailing" constant="24" id="mhI-Qq-gJx"/>
+                <constraint firstItem="FcC-20-0al" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pg1-by-vo2"/>
+                <constraint firstItem="D91-J5-5aY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vNT-19-ICx"/>
+            </constraints>
+            <point key="canvasLocation" x="101.5267175572519" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconHeader" width="377" height="245"/>
+        <image name="iconTake" width="24" height="24"/>
+        <image name="iconUpload" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
