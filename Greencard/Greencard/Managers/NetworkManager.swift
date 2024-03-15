@@ -16,16 +16,7 @@ final class NetworkManager {
     
     /// Begin task
     func start(image: UIImage, completion: @escaping (CompletedTaskResponse?) -> Void) {
-        
-        let fixedDPI: CGFloat = 600
-
-        // Diğer sabitler
-        let millimetersPerInch: CGFloat = 25.4
-
-        // Genişlik ve yükseklik hesaplamaları
-        let widthInPoints = 50.8 * (fixedDPI / millimetersPerInch)
-        let heightInPoints = 50.8 * (fixedDPI / millimetersPerInch)
-        let size = "\(Int(widthInPoints))x\(Int(heightInPoints))"
+        let size = "1200x1200"
         
         createTask(size: size, image: image) { taskId in
             let startTime = CFAbsoluteTimeGetCurrent()

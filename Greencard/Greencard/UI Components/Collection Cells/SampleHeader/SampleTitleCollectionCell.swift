@@ -21,6 +21,7 @@ final class SampleTitleCollectionCell: UICollectionReusableView {
         headerLabel.textColor = .textColor
         headerLabel.font  = .subHeading
         
+        infoButton.setTitle("Instructions", for: .normal)
         infoButton.setTitleColor(.blueColor, for: .normal)
         infoButton.titleLabel?.font = .bodyM
     }

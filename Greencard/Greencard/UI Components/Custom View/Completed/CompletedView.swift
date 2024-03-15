@@ -10,13 +10,14 @@ import UIKit
 final class CompletedView: BaseView {
 
     @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var pixelLabel: UILabel!
-    @IBOutlet weak var pixelValueLabel: UILabel!
-    @IBOutlet weak var photoSizeLabel: UILabel!
-    @IBOutlet weak var photoSizeValueLabel: UILabel!
-    @IBOutlet weak var fileFormatLabel: UILabel!
-    @IBOutlet weak var fileFormatValueLabel: UILabel!
+    @IBOutlet private weak var pixelLabel: UILabel!
+    @IBOutlet private weak var pixelValueLabel: UILabel!
+    @IBOutlet private weak var photoSizeLabel: UILabel!
+    @IBOutlet private weak var photoSizeValueLabel: UILabel!
+    @IBOutlet private weak var fileFormatLabel: UILabel!
+    @IBOutlet private weak var fileFormatValueLabel: UILabel!
+    @IBOutlet private weak var greencardTitleLabel: UILabel!
+    @IBOutlet private weak var iconWaterfall: UIImageView!
     
     override func applyStyling() {
         super.applyStyling()
@@ -24,8 +25,8 @@ final class CompletedView: BaseView {
         imageView.borderWidth = 16
         imageView.borderColor = .softGrayColor
         
-        titleLabel.textColor = .textColor
-        titleLabel.font = .subHeading
+        greencardTitleLabel.textColor = .textColor
+        greencardTitleLabel.font = .subHeading
         
         pixelLabel.textColor = .textColor
         pixelValueLabel.textColor = .textColor
@@ -41,30 +42,29 @@ final class CompletedView: BaseView {
         fileFormatValueLabel.textColor = .textColor
         fileFormatLabel.font = .bodyM
         fileFormatValueLabel.font = .bodyR
+        
+        updateWaterfall()
     }
     
     override func applyLocalizations() {
         super.applyLocalizations()
         
-        titleLabel.text = "US Green Card Photo"
+        greencardTitleLabel.text = "US Green Card Photo"
         
         pixelLabel.text = "Photo pixel:"
         photoSizeLabel.text = "Photo size:"
         fileFormatLabel.text = "File format:"
-
-    }
-    
-    override func setupAfterInit() {
-        super.setupAfterInit()
+        pixelValueLabel.text = "1200x1200"
+        photoSizeValueLabel.text = "2x2 in"
+        fileFormatValueLabel.text = "JPEG"
     }
     
     public func setupImage(with image: UIImage) {
         imageView.image = image
-        let widthInPixels = image.size.width * image.scale
-        let heightInPixels = image.size.height * image.scale
-        pixelValueLabel.text = "\(widthInPixels)x\(heightInPixels)"
-        photoSizeValueLabel.text = "2x2 in"
-        fileFormatValueLabel.text = "JPEG"
+    }
+    
+    public func updateWaterfall() {
+        iconWaterfall.isHidden = UserManager.shared.isPremium
     }
     
 }

@@ -15,6 +15,7 @@ extension UIColor {
     static let warningColor = UIColor(resource: .warning)
     static let softGrayColor = UIColor(resource: .softGray)
     static let optionColor = UIColor(resource: .option)
+    static let textColor20 = UIColor(resource: .text).withAlphaComponent(0.2)
     static let textColor30 = UIColor(resource: .text).withAlphaComponent(0.3)
     static let yellowColor20 = UIColor(resource: .yellow).withAlphaComponent(0.3)
     static let gradient1Color = UIColor(resource: .gradient1)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,27 +36,38 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconWaterfall" translatesAutoresizingMaskIntoConstraints="NO" id="Vdb-o8-YA1">
+                        <rect key="frame" x="0.0" y="0.0" width="182" height="150"/>
+                    </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="5Qg-eB-u6T" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="18D-QH-y8N"/>
+                <constraint firstItem="Vdb-o8-YA1" firstAttribute="leading" secondItem="5Qg-eB-u6T" secondAttribute="leading" id="4nF-iq-ErY"/>
                 <constraint firstAttribute="trailing" secondItem="5Qg-eB-u6T" secondAttribute="trailing" id="HpJ-9E-Yd1"/>
                 <constraint firstItem="Yb5-7D-zHB" firstAttribute="centerY" secondItem="5Qg-eB-u6T" secondAttribute="centerY" id="I1n-sF-1hs"/>
+                <constraint firstItem="Vdb-o8-YA1" firstAttribute="bottom" secondItem="5Qg-eB-u6T" secondAttribute="bottom" id="NVv-Wt-bBJ"/>
+                <constraint firstItem="Vdb-o8-YA1" firstAttribute="trailing" secondItem="5Qg-eB-u6T" secondAttribute="trailing" id="P8D-fK-LcM"/>
                 <constraint firstItem="QyV-6t-3HW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="c9v-jh-Jm9"/>
                 <constraint firstItem="Yb5-7D-zHB" firstAttribute="centerX" secondItem="5Qg-eB-u6T" secondAttribute="centerX" id="end-kd-RMR"/>
                 <constraint firstItem="QyV-6t-3HW" firstAttribute="top" secondItem="5Qg-eB-u6T" secondAttribute="bottom" constant="8" id="nbc-tF-dti"/>
                 <constraint firstAttribute="trailing" secondItem="QyV-6t-3HW" secondAttribute="trailing" id="nxC-ZO-jEC"/>
                 <constraint firstAttribute="bottom" secondItem="QyV-6t-3HW" secondAttribute="bottom" id="smU-Cb-iKf"/>
                 <constraint firstItem="5Qg-eB-u6T" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tbi-nh-sUi"/>
+                <constraint firstItem="Vdb-o8-YA1" firstAttribute="top" secondItem="5Qg-eB-u6T" secondAttribute="top" id="xGn-Qx-oOK"/>
             </constraints>
             <size key="customSize" width="182" height="229"/>
             <connections>
                 <outlet property="dateLabel" destination="QyV-6t-3HW" id="Cv8-P5-769"/>
                 <outlet property="iconAdd" destination="Yb5-7D-zHB" id="vQX-DQ-Mgh"/>
                 <outlet property="iconUser" destination="5Qg-eB-u6T" id="o8o-rp-XnP"/>
+                <outlet property="iconWaterfall" destination="Vdb-o8-YA1" id="XVb-22-mDq"/>
             </connections>
             <point key="canvasLocation" x="62.595419847328245" y="82.394366197183103"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="iconWaterfall" width="742" height="505"/>
+    </resources>
 </document>

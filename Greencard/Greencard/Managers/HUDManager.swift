@@ -11,8 +11,9 @@ import ProgressHUD
 final class HUDManager {
         
     class func showAnimation() {
-        ProgressHUD.colorAnimation = .greenColor
-        ProgressHUD.animate(nil, .barSweepToggle, interaction: false)
+        ProgressHUD.colorAnimation = .blueColor
+        ProgressHUD.colorProgress = .blueColor.withAlphaComponent(0.5)
+        ProgressHUD.animate(nil, .squareCircuitSnake, interaction: false)
     }
     
     class func hideAnimation() {

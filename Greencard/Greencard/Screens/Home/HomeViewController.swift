@@ -10,16 +10,15 @@ import SideMenu
 
 final class HomeViewController: BaseViewController {
 
-    @IBOutlet weak var takeButton: UIButton!
-    @IBOutlet weak var uploadButton: UIButton!
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var takeButton: UIButton!
+    @IBOutlet private weak var uploadButton: UIButton!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var subtitleLabel: UILabel!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
-    private let loading = LoadingViewController()
     lazy var sideMenuNavigationVC = SideMenuNavigationController(rootViewController: SideMenuViewController(), settings: makeSettings())
-    let presentationStyle = SideMenuPresentationStyle.viewSlideOut
+    private let presentationStyle = SideMenuPresentationStyle.viewSlideOut
 
     var items: [SamplePhoto] = SamplePhoto.createSamples() {
         didSet {
@@ -30,9 +29,7 @@ final class HomeViewController: BaseViewController {
     }
     
     let threshold: CGFloat = 10 // Eşik değeri
-    
-    private let viewModel = HomeViewModel()
-    
+        
     override func applyStyling() {
         super.applyStyling()
   
@@ -46,7 +43,7 @@ final class HomeViewController: BaseViewController {
         takeButton.setTitleColor(.textColor, for: .normal)
         takeButton.cornerRadius = 12
         
-        uploadButton.borderColor = .textColor
+        uploadButton.borderColor = .textColor20
         uploadButton.borderWidth = 1
         uploadButton.backgroundColor = .yellowColor20
         uploadButton.titleLabel?.font = .button
@@ -57,7 +54,7 @@ final class HomeViewController: BaseViewController {
     override func applyLocalizations() {
         super.applyLocalizations()
         
-        navigationItem.title = "AI Greencard"
+        navigationItem.title = "Greencard AI"
         takeButton.setTitle("Take a photo", for: .normal)
         uploadButton.setTitle("Upload photo", for: .normal)
     }
@@ -71,27 +68,10 @@ final class HomeViewController: BaseViewController {
         setupSideMenu()
     }
     
-    override func setBlocks() {
-        super.setBlocks()
-        
-        viewModel.onStartRequest = {
-            self.openLoadingView()
-        }
-        
-        viewModel.onError = {
-            self.loading.view.removeFromSuperview()
-            self.showRequestErrorAlert()
-        }
-        
-        viewModel.complete = {
-            self.closeLoadingView()
-        }
-    }
-    
     private func setupSideMenu() {
         SideMenuManager.default.leftMenuNavigationController = sideMenuNavigationVC
         SideMenuManager.default.addPanGestureToPresent(toView: navigationController!.navigationBar)
-//        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: pagingViewController.pageViewController.scrollView)
+        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.view)
     }
     
     private func makeSettings() -> SideMenuSettings {
@@ -155,7 +135,7 @@ final class HomeViewController: BaseViewController {
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self
                 imagePicker.sourceType = .savedPhotosAlbum
-                imagePicker.allowsEditing = true
+                imagePicker.allowsEditing = false
                 self.present(imagePicker, animated: true, completion: nil)
             }
         }
@@ -169,15 +149,6 @@ final class HomeViewController: BaseViewController {
         }
         alert.addAction(cancel)
         alert.addAction(go)
-        DispatchQueue.main.async {
-            self.present(alert, animated: true)
-        }
-    }
-    
-    func showRequestErrorAlert() {
-        let alert = UIAlertController(title: "Ooops!", message: "Check your photo or network connection.", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "OK", style: .cancel)
-        alert.addAction(cancel)
         DispatchQueue.main.async {
             self.present(alert, animated: true)
         }
@@ -203,6 +174,14 @@ final class HomeViewController: BaseViewController {
         }
     }
     
+    func showRequestError() {
+        let alert = UIAlertController(title: "Ooops!", message: "Check your photo or network connection.", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "OK", style: .cancel)
+        alert.addAction(cancel)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
+    }
     
     //MARK: - IBActions
     @IBAction func didTapUpload(_ sender: UIButton) {
@@ -256,41 +235,29 @@ final class HomeViewController: BaseViewController {
         present(sideMenuNavigationVC, animated: true)
     }
     
-    private func openLoadingView() {
-        self.loading.modalTransitionStyle = .coverVertical
-        self.loading.modalPresentationStyle = .fullScreen
-        self.present(loading, animated: true)
-    }
-    
-    private func closeLoadingView() {
-        if let url = viewModel.url {
-            self.loading.updateAdjustedTitle()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.loading.dismiss(animated: true)
-                
-                self.openCompletedScreen()
+    private func openLoadingScreen(with image: UIImage) {
+        let vc = LoadingViewController(image: image) { [weak self] url in
+            if let url {
+                self?.openCompletedScreen(url: url)
+            } else {
+                self?.showRequestError()
             }
         }
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
     }
     
-    private func openCompletedScreen() {
-        guard let url = viewModel.url else { return }
+    
+    private func openCompletedScreen(url: URL) {
         let vc = UINavigationController(rootViewController: CompletedViewController(url: url))
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
     }
-    
-    private func showError() {
-        let alert = UIAlertController(title: "Ooops!", message: "Check your photo or network connection.", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "OK", style: .cancel)
-        alert.addAction(cancel)
-        DispatchQueue.main.async {
-            self.present(alert, animated: true)
-        }
-    }
 }
 
+//MARK: - UICollectionView DataSource&Delegate
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
@@ -360,9 +327,7 @@ extension HomeViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true) {
             if let image = info[.originalImage] as? UIImage {
-                self.viewModel.image = image
-            } else if let image = info[.editedImage] as? UIImage {
-                self.viewModel.image = image
+                self.openLoadingScreen(with: image)
             }
         }
     }

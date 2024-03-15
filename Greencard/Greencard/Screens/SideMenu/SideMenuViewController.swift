@@ -17,6 +17,13 @@ final class SideMenuViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
     
     override func setupAfterInit() {
         super.setupAfterInit()

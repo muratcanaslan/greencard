@@ -13,7 +13,7 @@ final class PhotosCollectionCell: BaseCollectionViewCell {
     @IBOutlet weak var iconAdd: UIImageView!
     @IBOutlet weak var iconUser: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    
+    @IBOutlet weak var iconWaterfall: UIImageView!
 
     override func applyStyling() {
         super.applyStyling()
@@ -26,13 +26,15 @@ final class PhotosCollectionCell: BaseCollectionViewCell {
         
         iconAdd.isHidden = model.type == .user
         iconUser.backgroundColor = model.bgColor
-        
+                
         switch model.type {
         case .add:
+            iconWaterfall.isHidden = true
             iconUser.image = nil
             iconAdd.image = UIImage(resource: .iconAdd)
             dateLabel.text = "Create new"
         case .user:
+            iconWaterfall.isHidden = UserManager.shared.isPremium
             iconUser.image = model.content
             dateLabel.text = model.formatDate
         }

@@ -65,72 +65,66 @@
                     </constraints>
                     <blurEffect style="extraLight"/>
                 </visualEffectView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zQx-yg-YSx">
-                    <rect key="frame" x="24" y="698" width="345" height="102"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-iN-24p">
+                    <rect key="frame" x="24" y="698" width="345" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="BZG-vm-o5e"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="9"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTapPurchase:" destination="-1" eventType="touchUpInside" id="x6x-gV-akk"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="byx-p9-R4r">
+                    <rect key="frame" x="55" y="770" width="283" height="30"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCg-iN-24p">
-                            <rect key="frame" x="0.0" y="0.0" width="345" height="56"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="56" id="BZG-vm-o5e"/>
-                            </constraints>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xF0-C6-nst">
+                            <rect key="frame" x="0.0" y="0.0" width="147" height="30"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Button"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="9"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
+                            <state key="normal" title="Terms and conditions"/>
                             <connections>
-                                <action selector="didTapPurchase:" destination="-1" eventType="touchUpInside" id="x6x-gV-akk"/>
+                                <action selector="didTapTerms:" destination="-1" eventType="touchUpInside" id="r9A-do-sxA"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="byx-p9-R4r">
-                            <rect key="frame" x="0.0" y="72" width="345" height="30"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xF0-C6-nst">
-                                    <rect key="frame" x="0.0" y="0.0" width="167" height="30"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="Terms and conditions"/>
-                                    <connections>
-                                        <action selector="didTapTerms:" destination="-1" eventType="touchUpInside" id="r9A-do-sxA"/>
-                                    </connections>
-                                </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&amp;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0o-r0-Cbk">
-                                    <rect key="frame" x="168" y="0.0" width="9" height="30"/>
-                                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
-                                    <color key="textColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PU2-OB-jKe">
-                                    <rect key="frame" x="178" y="0.0" width="167" height="30"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="Privacy policy"/>
-                                    <connections>
-                                        <action selector="didTapPrivacy:" destination="-1" eventType="touchUpInside" id="ylA-Sf-f5I"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="PU2-OB-jKe" firstAttribute="width" secondItem="xF0-C6-nst" secondAttribute="width" id="2GJ-hq-PKa"/>
-                            </constraints>
-                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&amp;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0o-r0-Cbk">
+                            <rect key="frame" x="163" y="0.0" width="9" height="30"/>
+                            <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                            <color key="textColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PU2-OB-jKe">
+                            <rect key="frame" x="188" y="0.0" width="95" height="30"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Privacy policy"/>
+                            <connections>
+                                <action selector="didTapPrivacy:" destination="-1" eventType="touchUpInside" id="ylA-Sf-f5I"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="byx-p9-R4r" firstAttribute="top" secondItem="aCg-iN-24p" secondAttribute="bottom" constant="16" id="BHC-QB-TYR"/>
                 <constraint firstAttribute="bottom" secondItem="Glp-YS-SOa" secondAttribute="bottom" id="E7F-sJ-5Ke"/>
                 <constraint firstItem="Otm-tB-olj" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="HRc-Bq-5Hm"/>
-                <constraint firstItem="S71-Dg-pyV" firstAttribute="top" secondItem="zQx-yg-YSx" secondAttribute="top" constant="-16" id="LFd-Ms-xt5"/>
                 <constraint firstItem="S71-Dg-pyV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="NpO-qa-ihn"/>
                 <constraint firstItem="Glp-YS-SOa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="P7u-wo-0Xg"/>
                 <constraint firstItem="Glp-YS-SOa" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Rva-HE-0Mt"/>
                 <constraint firstItem="Glp-YS-SOa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TDx-7y-3DM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zQx-yg-YSx" secondAttribute="trailing" constant="24" id="Tfl-GO-WgI"/>
+                <constraint firstItem="aCg-iN-24p" firstAttribute="top" secondItem="S71-Dg-pyV" secondAttribute="top" constant="16" id="ToC-cQ-k4C"/>
                 <constraint firstItem="S71-Dg-pyV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ufh-Nj-WPl"/>
+                <constraint firstItem="aCg-iN-24p" firstAttribute="trailing" secondItem="S71-Dg-pyV" secondAttribute="trailing" constant="-24" id="Wzz-8h-E4Z"/>
+                <constraint firstItem="byx-p9-R4r" firstAttribute="centerX" secondItem="aCg-iN-24p" secondAttribute="centerX" id="YIp-LX-Iuw"/>
+                <constraint firstItem="aCg-iN-24p" firstAttribute="leading" secondItem="S71-Dg-pyV" secondAttribute="leading" constant="24" id="bDj-9e-GFJ"/>
                 <constraint firstAttribute="bottom" secondItem="S71-Dg-pyV" secondAttribute="bottom" id="cuP-8p-exN"/>
-                <constraint firstItem="zQx-yg-YSx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="r9K-cY-lgn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-37.404580152671755" y="19.718309859154932"/>

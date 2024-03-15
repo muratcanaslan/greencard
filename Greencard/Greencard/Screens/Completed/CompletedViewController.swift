@@ -37,7 +37,7 @@ final class CompletedViewController: BaseViewController {
         super.applyStyling()
         
         shareButton.titleLabel?.font = .button
-        shareButton.borderColor = .textColor
+        shareButton.borderColor = .textColor20
         shareButton.borderWidth = 1
         shareButton.backgroundColor = .yellowColor20
         shareButton.setTitleColor(.textColor, for: .normal)
@@ -83,9 +83,7 @@ final class CompletedViewController: BaseViewController {
     }
     
     private func setupImage() {
-        HUDManager.showAnimation()
         KingfisherManager.shared.retrieveImage(with: url) { [weak self] result in
-            HUDManager.hideAnimation()
             switch result {
             case .success(let response):
                 self?.image = response.image
@@ -133,6 +131,7 @@ final class CompletedViewController: BaseViewController {
         if !UserManager.shared.isPremium {
             self.openPremium(onPurchased: {
                 if UserManager.shared.isPremium {
+                    self.completedView.updateWaterfall()
                     self.openActivityShareImage(image: image)
                 }
             })
@@ -147,6 +146,7 @@ final class CompletedViewController: BaseViewController {
         if !UserManager.shared.isPremium {
             self.openPremium(onPurchased: {
                 if UserManager.shared.isPremium {
+                    self.completedView.updateWaterfall()
                     self.saveImage(image: image)
                 }
             })
