@@ -15,8 +15,15 @@ class UserManager {
     @UserDefaultWrapper(key: "ud_user", defaultValue: User.nonPremiumUser)
     var user: User
     
+    @UserDefaultWrapper(key: "ud_showRatingCount", defaultValue: 0)
+    private var showRatingCount: Int
+    
     var isPremium: Bool {
         return user.isPremium
+    }
+    
+    var showRating: Bool {
+        return showRatingCount % 5 == 0 || (showRatingCount == 0)
     }
     
     func start(completion: (() -> Void)? = nil) {
@@ -41,6 +48,10 @@ class UserManager {
     
     func update(user: User) {
         self.user = user
+    }
+    
+    func incrementSeen() {
+        showRatingCount += 1
     }
 }
 

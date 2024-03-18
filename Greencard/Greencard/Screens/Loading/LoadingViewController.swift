@@ -32,7 +32,7 @@ final class LoadingViewController: BaseViewController {
     private let duration: TimeInterval = 4.0
     private var circlePath: UIBezierPath?
     private let shape = CAShapeLayer()
-    let initialScale: CGFloat = 1
+    let initialScale: CGFloat = 0.5
     lazy var initialTransform = CGAffineTransform(scaleX: initialScale, y: initialScale)
     
     var onHandler: ((URL?) -> Void)?
@@ -169,18 +169,17 @@ final class LoadingViewController: BaseViewController {
     
     @objc func updateGreencardImage() {
         UIView.animate(withDuration: 1.0,
-                                   delay: 0,
-                                   usingSpringWithDamping: 0.5, // Spring damping factor
-                                   initialSpringVelocity: 0.5, // Initial spring velocity
-                                   options: [],
-                                   animations: {
-                                    // UIImageView'nin boyutunu küçültün veya normal boyuta geri döndürün
-                                    if self.greencardImage.transform == .identity {
-                                        self.greencardImage.transform = self.initialTransform
-                                    } else {
-                                        self.greencardImage.transform = .identity
-                                    }
-                    }, completion: nil)
+                       delay: 0,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0,
+                       options: [],
+                       animations: {
+            if self.greencardImage.transform == .identity {
+                self.greencardImage.transform = self.initialTransform
+            } else {
+                self.greencardImage.transform = .identity
+            }
+        }, completion: nil)
     }
 }
 

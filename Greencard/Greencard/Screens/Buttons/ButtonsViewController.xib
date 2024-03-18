@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ButtonsViewController" customModule="Greencard" customModuleProvider="target">
+            <connections>
+                <outlet property="takeButton" destination="lRu-Q0-QAD" id="RKa-Nv-LTY"/>
+                <outlet property="uploadButton" destination="qB0-XO-8ya" id="htK-Nt-zDV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fVL-ec-kXy">
+                    <rect key="frame" x="24" y="650" width="345" height="128"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qB0-XO-8ya">
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="BJs-34-Q5n"/>
+                            </constraints>
+                            <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Upload photo" image="iconUpload"/>
+                            <connections>
+                                <action selector="didTapUpload:" destination="-1" eventType="touchUpInside" id="t5G-NN-AJr"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRu-Q0-QAD">
+                            <rect key="frame" x="0.0" y="72" width="345" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="dOe-dg-tkc"/>
+                            </constraints>
+                            <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Take a photo" image="iconTake"/>
+                            <connections>
+                                <action selector="didTapTake:" destination="-1" eventType="touchUpInside" id="8fW-Rg-Drd"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fVL-ec-kXy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="D1A-Kp-SIU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fVL-ec-kXy" secondAttribute="bottom" constant="40" id="YIO-fo-tAJ"/>
+                <constraint firstItem="fVL-ec-kXy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="t1l-IG-cMl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fVL-ec-kXy" secondAttribute="trailing" constant="24" id="v1p-gD-yaW"/>
+            </constraints>
+            <point key="canvasLocation" x="-51" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iconTake" width="24" height="24"/>
+        <image name="iconUpload" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

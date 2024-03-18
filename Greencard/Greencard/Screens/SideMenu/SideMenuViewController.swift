@@ -50,18 +50,24 @@ final class SideMenuViewController: BaseViewController {
     
     //MARK: - IBActions
     private func didTapShare() {
-                ForceUpdateManager.getAppId { appId in
-                    guard let appId = appId else { return }
-                    let url = "https://itunes.apple.com/app/\(appId)"
-                    DispatchQueue.main.async {
-                        let vc = UIActivityViewController(activityItems: [url], applicationActivities: [])
-                        self.present(vc, animated: true)
-                    }
-                }
+        ForceUpdateManager.getAppId { appId in
+            guard let appId = appId else { return }
+            let url = "https://itunes.apple.com/app/\(appId)"
+            DispatchQueue.main.async {
+                let vc = UIActivityViewController(activityItems: [url], applicationActivities: [])
+                self.present(vc, animated: true)
+            }
+        }
     }
     
     private func didTapRateUs() {
-        SKStoreReviewController.requestReview()
+        ForceUpdateManager.getAppId { appId in
+            guard let appId = appId else { return }
+            let reviewURL = "https://apps.apple.com/us/app/id\(appId)?action=write-review"
+            if let url = URL(string: reviewURL) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
     
     private func didTapPrivacyPolicy() {

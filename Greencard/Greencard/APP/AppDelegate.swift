@@ -36,10 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NavigationManager.start()
         
-        if #available(iOS 14, *) {
-            ATTManager.send()
-        }
-        
         return true
     }
     

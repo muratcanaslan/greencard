@@ -39,7 +39,7 @@ final class PhotosViewController: BaseViewController {
     }
     
     private func setBackButton() {
-        let back = UIBarButtonItem(image: UIImage(resource: .iconClose), style: .done, target: self, action: #selector(didTapBack))
+        let back = UIBarButtonItem(image: UIImage(resource: .iconBack), style: .done, target: self, action: #selector(didTapBack))
         navigationItem.leftBarButtonItem = back
     }
     
@@ -142,37 +142,6 @@ final class PhotosViewController: BaseViewController {
             self.present(alert, animated: true)
         }
     }
-    
-    private func openCreateAlert() {
-        let alert = UIAlertController(title: "Greencard AI", message: "Please choose the option you would like to create new photo", preferredStyle: .alert)
-        let upload = UIAlertAction(title: "Upload photo", style: .default) { [weak self] _ in
-            self?.dismiss(animated: true) {
-                self?.onUpload?()
-            }
-        }
-        let take = UIAlertAction(title: "Take a photo", style: .default) { [weak self] _ in
-            self?.dismiss(animated: true) {
-                self?.onTake?()
-            }
-        }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        upload.setValue(UIColor.blueColor, forKey: "titleTextColor")
-        take.setValue(UIColor.blueColor, forKey: "titleTextColor")
-        cancel.setValue(UIColor.warning, forKey: "titleTextColor")
-
-        alert.addAction(upload)
-        alert.addAction(take)
-        alert.addAction(cancel)
-        let titleAttr = [NSAttributedString.Key.font:UIFont.button, NSAttributedString.Key.foregroundColor: UIColor.textColor]
-        let titleStr = NSAttributedString(string: "Greencard", attributes: titleAttr)
-        alert.setValue(titleStr, forKey: "attributedTitle")
-
-        DispatchQueue.main.async {
-            self.present(alert, animated: true)
-        }
-        
-    }
 }
 
 extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -190,7 +159,18 @@ extension PhotosViewController: UICollectionViewDataSource, UICollectionViewDele
         let item = viewModel.cellVMs[indexPath.item]
         switch item.type {
         case .add:
-            openCreateAlert()
+            let vc = ButtonsViewController()
+            vc.onTake = {
+                self.dismiss(animated: true) {
+                    self.onTake?()
+                }
+            }
+            vc.onUpload = {
+                self.dismiss(animated: true) {
+                    self.onUpload?()
+                }
+            }
+            self.presentPanModal(vc)
         case .user:
             createActionSheet(item: item)
         }

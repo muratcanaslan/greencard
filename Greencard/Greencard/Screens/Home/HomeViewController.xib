@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="collectionView" destination="ePb-HC-Ewz" id="O3q-Ue-ri5"/>
                 <outlet property="headerView" destination="BBA-tH-4na" id="bsu-vr-17Y"/>
+                <outlet property="stackView" destination="D91-J5-5aY" id="3Ce-BY-6WX"/>
                 <outlet property="subtitleLabel" destination="wcP-kk-iSr" id="1SI-TG-m2t"/>
                 <outlet property="takeButton" destination="rVC-zf-gjX" id="XSW-pK-peC"/>
                 <outlet property="titleLabel" destination="SHE-Kh-hlK" id="czK-dv-RVo"/>
@@ -77,20 +78,18 @@
                         </collectionView>
                     </subviews>
                 </stackView>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FcC-20-0al">
+                <visualEffectView opaque="NO" alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FcC-20-0al">
                     <rect key="frame" x="0.0" y="647" width="393" height="205"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3ew-jQ-gsD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="205"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="205" id="6mV-fT-v7E"/>
                     </constraints>
-                    <vibrancyEffect style="label">
-                        <blurEffect style="extraLight"/>
-                    </vibrancyEffect>
+                    <blurEffect style="prominent"/>
                 </visualEffectView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Mxc-mm-waG">
                     <rect key="frame" x="24" y="664" width="345" height="128"/>

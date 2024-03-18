@@ -7,6 +7,7 @@
 
 import UIKit
 import SideMenu
+import StoreKit
 
 final class HomeViewController: BaseViewController {
 
@@ -16,6 +17,7 @@ final class HomeViewController: BaseViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var stackView: UIStackView!
     
     lazy var sideMenuNavigationVC = SideMenuNavigationController(rootViewController: SideMenuViewController(), settings: makeSettings())
     private let presentationStyle = SideMenuPresentationStyle.viewSlideOut
@@ -62,10 +64,22 @@ final class HomeViewController: BaseViewController {
     override func setupAfterInit() {
         super.setupAfterInit()
         
+        showNativeRating()
         setupCollectionView()
         addSideMenuItem()
         addPhotosItem()
         setupSideMenu()
+    }
+    
+    private func showNativeRating() {
+
+        if UserManager.shared.showRating {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                SKStoreReviewController.requestReview()
+            }
+            
+            UserManager.shared.incrementSeen()
+        }
     }
     
     private func setupSideMenu() {
@@ -298,26 +312,18 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
-        
-        // Eşik değeri kontrolü
-        if offsetY > threshold {
-            // Eşik değeri aşıldı, UIView'i animasyonlu bir şekilde gizle
-            if !headerView.isHidden {
-                UIView.animate(withDuration: 0.3) {
-                    self.headerView.alpha = 0.0
-                } completion: { _ in
-                    self.headerView.isHidden = true
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: {
+                if offsetY > self.threshold {
+                    DispatchQueue.main.async {
+                        self.headerView.isHidden = true
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.headerView.isHidden = false
+                    }
                 }
-            }
-        } else {
-            // Eşik değeri aşılmadı, UIView'i animasyonlu bir şekilde görünür yap
-            if headerView.isHidden {
-                headerView.isHidden = false
-                UIView.animate(withDuration: 0.3) {
-                    self.headerView.alpha = 1.0
-                }
-            }
-        }
+            }, completion: nil)
     }
 }
 

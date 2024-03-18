@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import StoreKit
 
 final class CompletedViewController: BaseViewController {
 
@@ -48,6 +49,19 @@ final class CompletedViewController: BaseViewController {
         
         saveButton.cornerRadius = 9
         shareButton.cornerRadius = 9
+        
+        
+    }
+    
+    private func showNativeRating() {
+
+        if UserManager.shared.showRating {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                SKStoreReviewController.requestReview()
+            }
+            
+            UserManager.shared.incrementSeen()
+        }
     }
     
     override func applyLocalizations() {
@@ -62,6 +76,7 @@ final class CompletedViewController: BaseViewController {
         super.setupAfterInit()
         
         setupImage()
+        showNativeRating()
         setCloseButton()
         scrollView.contentInset = .init(top: 0, left: 0, bottom: 240, right: 0)
         scrollView.contentInsetAdjustmentBehavior = .never
